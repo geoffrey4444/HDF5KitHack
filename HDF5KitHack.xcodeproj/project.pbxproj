@@ -11,6 +11,8 @@
 		8FE17C3C278A38210070996D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FE17C3B278A38210070996D /* ContentView.swift */; };
 		8FE17C3E278A38220070996D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8FE17C3D278A38220070996D /* Assets.xcassets */; };
 		8FE17C41278A38220070996D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8FE17C40278A38220070996D /* Preview Assets.xcassets */; };
+		8FE17C4A278A38900070996D /* HDF5Kit in Frameworks */ = {isa = PBXBuildFile; productRef = 8FE17C49278A38900070996D /* HDF5Kit */; };
+		8FE17C4D278A3CE60070996D /* libhdf5.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FE17C4C278A3CE60070996D /* libhdf5.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,6 +22,7 @@
 		8FE17C3D278A38220070996D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8FE17C40278A38220070996D /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		8FE17C42278A38220070996D /* HDF5KitHack.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = HDF5KitHack.entitlements; sourceTree = "<group>"; };
+		8FE17C4C278A3CE60070996D /* libhdf5.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libhdf5.a; path = ../../../../../../opt/homebrew/Cellar/hdf5/1.12.1/lib/libhdf5.a; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -27,6 +30,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8FE17C4D278A3CE60070996D /* libhdf5.a in Frameworks */,
+				8FE17C4A278A38900070996D /* HDF5Kit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -38,6 +43,7 @@
 			children = (
 				8FE17C38278A38210070996D /* HDF5KitHack */,
 				8FE17C37278A38210070996D /* Products */,
+				8FE17C4B278A3CE60070996D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -69,6 +75,14 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		8FE17C4B278A3CE60070996D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8FE17C4C278A3CE60070996D /* libhdf5.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -85,6 +99,9 @@
 			dependencies = (
 			);
 			name = HDF5KitHack;
+			packageProductDependencies = (
+				8FE17C49278A38900070996D /* HDF5Kit */,
+			);
 			productName = HDF5KitHack;
 			productReference = 8FE17C36278A38210070996D /* HDF5KitHack.app */;
 			productType = "com.apple.product-type.application";
@@ -113,6 +130,9 @@
 				Base,
 			);
 			mainGroup = 8FE17C2D278A38210070996D;
+			packageReferences = (
+				8FE17C48278A38900070996D /* XCRemoteSwiftPackageReference "HDF5Kit" */,
+			);
 			productRefGroup = 8FE17C37278A38210070996D /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -281,6 +301,10 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/opt/homebrew/Cellar/hdf5/1.12.1/lib,
+				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "geoffrey4444-me.com.HDF5KitHack";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -307,6 +331,10 @@
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/opt/homebrew/Cellar/hdf5/1.12.1/lib,
 				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "geoffrey4444-me.com.HDF5KitHack";
@@ -338,6 +366,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		8FE17C48278A38900070996D /* XCRemoteSwiftPackageReference "HDF5Kit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/trueb2/HDF5Kit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.3.2;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		8FE17C49278A38900070996D /* HDF5Kit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8FE17C48278A38900070996D /* XCRemoteSwiftPackageReference "HDF5Kit" */;
+			productName = HDF5Kit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 8FE17C2E278A38210070996D /* Project object */;
 }
